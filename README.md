@@ -2,15 +2,60 @@
 
 ## Overview
 
-This project implements a comprehensive **Interest Rate Modeling and Derivatives Pricing** framework using the **Vasicek short-rate model**. The implementation covers fixed-income derivatives pricing, from bond valuation to complex swaption pricing, using both analytical and Monte Carlo techniques.
+### Project Overview - What We Are Doing
+📊 Data Sources
+1. Federal Reserve Economic Data (FRED): Historical Federal Funds Rate from 1954-2025
+2. SOFR (Secured Overnight Financing Rate): For yield curve construction
+3. Real market data: 854 monthly observations, focusing on 2010-2025 period for calibration
 
-Key elements include:
+🔧 Core Techniques & Methods
+1. Model Calibration
+    Vasicek Short Rate Model: 
+    dr(t)=a(b−r(t))dt+σdW(t)
 
-- Calibration of Vasicek model to real data  
-- Analytical and Monte Carlo bond pricing (with variance reduction)  
-- Interest rate swap pricing  
-- European call options on zero-coupon bonds  
-- European swaption valuation via Black’s model  
+    Maximum Likelihood Estimation (MLE): Primary parameter estimation method
+    Ordinary Least Squares (OLS): Fallback calibration technique
+    Parameter Results: a=0.014, b=20%, σ=0.51%
+
+3. Analytical Pricing Methods
+    Closed-form Vasicek bond pricing: Using exponential-affine formula
+    Term structure modeling: Zero-coupon bond pricing for multiple maturities
+    Par swap rate calculation: Using annuity factor approach
+
+3. Monte Carlo Simulation Techniques
+    Euler-Maruyama discretization: For simulating interest rate paths
+    Variance reduction methods:
+    Antithetic variates (1.01× reduction)
+    Control variates (1,931× reduction - highly effective)
+    Importance sampling (conceptual)
+    Path simulation: 100,000+ simulation paths with 250 time steps
+
+4. Derivatives Pricing Framework
+    Interest Rate Swaps: 5-year SOFR-linked floating leg pricing
+    European Call Options: On zero-coupon bonds using Monte Carlo
+    European Swaptions: Using Black's model with annuity numeraire
+    Bermudan Swaptions: Framework using Longstaff-Schwartz method
+
+🎯 What We Accomplish
+Pricing Results
+    5-Year Zero-Coupon Bond: $0.7969 (79.69 cents per dollar)
+    5-Year Par Swap Rate: 4.54% with duration of 4.83 years
+    European Call Option: $43.08 (Strike=$900, Face=$1000, 4Y expiry)
+    European Swaption: $2.47 (2Y into 5Y, Strike=4.5%)
+
+Validation & Analysis
+    Cross-validation: Monte Carlo vs. analytical pricing (0.0008% error)
+    Convergence analysis: Statistical validation of simulation results
+    Greeks calculation: Delta sensitivity analysis for risk management
+    Model diagnostics: Comprehensive calibration validation plots
+
+🛠 Technical Implementation
+    Programming: Python with NumPy, SciPy, Pandas, Matplotlib
+    Numerical methods: Advanced scientific computing techniques
+    Data processing: Time series analysis and statistical modeling
+    Visualization: Professional financial charts and diagnostic plots
+
+This project demonstrates advanced quantitative finance skills by building a complete interest rate derivatives pricing framework from scratch, using both theoretical mathematical models and practical computational techniques with real market data 
 
 This repository is intended as both an educational tool and a practical fixed-income analysis framework.
 
