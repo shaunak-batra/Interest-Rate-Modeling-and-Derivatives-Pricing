@@ -1,8 +1,6 @@
 # Interest Rate Modeling and Derivatives Pricing
 
-## Overview
-
-### Project Overview - What We Are Doing
+## Project Overview 
 📊 Data Sources
 1. Federal Reserve Economic Data (FRED): Historical Federal Funds Rate from 1954-2025
 2. SOFR (Secured Overnight Financing Rate): For yield curve construction
