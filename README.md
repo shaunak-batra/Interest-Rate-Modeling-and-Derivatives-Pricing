@@ -563,7 +563,7 @@ Sensitivity / Greek analyses show consistent behavior with financial intuition.
 
 ### Assignment Completion
 
-This project addresses all requirements from the **INDIAN INSTITUTE OF QUANTITATIVE FINANCE Capstone Project**:
+This project addresses all requirements from the **INDIAN INSTITUTE OF QUANTITATIVE FINANCE Capstone Project** for their **CPFE** course.
 
 ### Learning Outcomes
 
